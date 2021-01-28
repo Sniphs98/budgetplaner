@@ -13,17 +13,17 @@ import java.util.UUID;
 public class Transaction {
     @Id
     @GeneratedValue
-    UUID transaction;
-    UUID user;
+    int transaction;
+    int userId;
     BigDecimal money;
-    UUID project;
+    int projectId;
 
     public Transaction() {
     }
 
-    public Transaction(UUID user, BigDecimal money, UUID project) {
-        this.user = user;
+    public Transaction(int userId, BigDecimal money, int projectId) {
+        this.userId = userId;
         this.money = money;
-        this.project = project;
+        this.projectId = projectId;
     }
 }

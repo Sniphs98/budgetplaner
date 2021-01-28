@@ -7,6 +7,6 @@ import pictorius.ITB119.budgetplaner.modull.Transaction;
 import java.util.UUID;
 
 @Repository
-public interface TransactionRepository extends CrudRepository<Transaction, UUID> {
+public interface TransactionRepository extends CrudRepository<Transaction, Integer> {
 
 }

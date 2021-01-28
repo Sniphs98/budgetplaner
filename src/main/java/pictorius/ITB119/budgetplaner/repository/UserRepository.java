@@ -7,6 +7,6 @@ import pictorius.ITB119.budgetplaner.modull.User;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, UUID>{
+public interface UserRepository extends CrudRepository<User, Integer>{
 
 }

@@ -6,14 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Data
 @Entity
 public class Project {
     @Id
     @GeneratedValue
-    UUID projectID;
+    int projectId;
     BigDecimal currentMoney;
     BigDecimal goalMoney;
     User[] supporters;
