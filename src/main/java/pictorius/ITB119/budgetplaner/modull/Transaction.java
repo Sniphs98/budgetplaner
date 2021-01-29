@@ -13,7 +13,7 @@ import java.util.UUID;
 public class Transaction {
     @Id
     @GeneratedValue
-    int transaction;
+    int transactionId;
     int userId;
     BigDecimal money;
     int projectId;

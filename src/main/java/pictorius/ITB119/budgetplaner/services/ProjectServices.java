@@ -26,9 +26,7 @@ public class ProjectServices {
         projectRepository.save(project);
     }
 
-    //TODO
-    public Project getProjectById(int id) {
-//        return projectRepository.getById(id);
-        return null;
+    public Project getByProjectById(int id) {
+        return projectRepository.getByProjectId(id);
     }
 }
