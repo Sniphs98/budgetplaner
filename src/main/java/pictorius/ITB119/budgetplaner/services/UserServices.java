@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import pictorius.ITB119.budgetplaner.modull.User;
 import pictorius.ITB119.budgetplaner.repository.UserRepository;
 
+import java.util.List;
+
 @Service
 public class UserServices {
 
@@ -15,4 +17,15 @@ public class UserServices {
         userRepository.save(user);
     }
 
+    public List<User> getListOfUser() {
+        return userRepository.findAll();
+    }
+
+    public void updateUser(User user) {
+        userRepository.save(user);
+    }
+
+    public User getByUserId(int id) {
+        return userRepository.findByUserId(id);
+    }
 }

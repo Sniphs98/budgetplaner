@@ -12,7 +12,7 @@ public class User {
     @Id
     @GeneratedValue
     @org.hibernate.annotations.Type(type="org.hibernate.type.UUIDCharType")
-    UUID uuid;
+    int userId;
     String firstname;
     String lastname;
 
