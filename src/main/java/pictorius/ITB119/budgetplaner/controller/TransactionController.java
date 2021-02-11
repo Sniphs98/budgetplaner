@@ -7,6 +7,7 @@ import pictorius.ITB119.budgetplaner.services.TransactionServices;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/transaction")
 public class TransactionController {

@@ -7,6 +7,7 @@ import pictorius.ITB119.budgetplaner.services.UserServices;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {

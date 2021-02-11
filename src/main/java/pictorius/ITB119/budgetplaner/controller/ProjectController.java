@@ -7,7 +7,7 @@ import pictorius.ITB119.budgetplaner.services.ProjectServices;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/project")
 public class ProjectController {

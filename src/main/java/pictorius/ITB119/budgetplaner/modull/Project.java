@@ -16,17 +16,17 @@ public class Project {
     BigDecimal currentMoney;
     BigDecimal goalMoney;
     User[] supporters;
-    String tile;
+    String title;
     String description;
 
     public Project() {
     }
 
-    public Project(BigDecimal currentMoney, BigDecimal goalMoney, User[] supporters, String tile, String description) {
+    public Project(BigDecimal currentMoney, BigDecimal goalMoney, User[] supporters, String title, String description) {
         this.currentMoney = currentMoney;
         this.goalMoney = goalMoney;
         this.supporters = supporters;
-        this.tile = tile;
+        this.title = title;
         this.description = description;
     }
 }
