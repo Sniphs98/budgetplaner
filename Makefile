@@ -10,6 +10,9 @@ build: # Bundling files for production
 	
 dev: # Starts a local dev server
 	@npm --prefix ./app run dev
+	
+lint: # Lint frontend code with esling
+	@npm --prefix ./app run lint
 
 help: # Show this help
 	@egrep -h '\s#\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?# "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
