@@ -3,5 +3,8 @@
         "public": "/",
         "src": "/src"
     },
+    "buildOptions": {
+        "out": "dist"
+    },
     "plugins": ["@snowpack/plugin-vue"]
 }
