@@ -1,0 +1,36 @@
+:root {
+    /* Font family */
+    --font-sans-serif: 'Inter', sans-serif;
+    
+    /* Font sizes */
+    --text-sm: 1.28rem;
+    --text-base: 1.6rem;
+    --text-md: 2rem;
+    --text-lg: 2.5rem;
+    --text-xl: 3.12rem;
+    --text-2xl: 3.91rem;
+    --text-3xl: 4.88rem;
+    
+    /* Font weight */
+    --weight-base: 400;
+    --weight-semi-bold: 500;
+    
+    /* Line height */
+    --line-height-headline: 1;
+    --line-height-body: 1.6;
+
+    /* Colors */
+    --grey-50: rgb(249, 250, 251);
+    --grey-100: rgb(243, 244, 246);
+    --grey-200: rgb(229, 231, 235);
+    --grey-300: rgb(209, 213, 219);
+    --grey-400: rgb(156, 163, 175);
+    --grey-500: rgb(107, 114, 128);
+    --grey-600: rgb(75, 85, 99);
+    --grey-700: rgb(55, 65, 81);
+    --grey-800: rgb(31, 41, 55);
+    --grey-900: rgb(17, 24, 39);
+    
+    --white: rgb(255, 255, 255);
+    --black: rgb(0, 0, 0);
+}
