@@ -6,5 +6,5 @@
     "buildOptions": {
         "out": "dist"
     },
-    "plugins": ["@snowpack/plugin-vue"]
+    "plugins": ["@snowpack/plugin-vue", "snowpack-plugin-relative-css-urls"]
 }
