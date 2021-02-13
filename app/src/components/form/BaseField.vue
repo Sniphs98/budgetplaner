@@ -25,7 +25,8 @@ export default {
 </script>
 
 <style scoped>
-input {
+input,
+textarea {
     border: 2px solid var(--grey-300);
     background-color: var(--grey-100);
     color: var(--grey-800);
@@ -35,7 +36,12 @@ input {
     padding: 4px;
 }
 
-input::placeholder {
+textarea {
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
     color: var(--grey-400);
 }
 

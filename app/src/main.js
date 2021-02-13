@@ -11,4 +11,7 @@ app.component('TextField', TextField);
 import NumberField from './components/form/NumberField.vue';
 app.component('NumberField', NumberField);
 
+import TextArea from './components/form/TextArea.vue';
+app.component('TextArea', TextArea);
+
 app.mount("#app");
