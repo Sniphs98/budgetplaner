@@ -5,7 +5,7 @@ html {
     line-height: var(--line-height-body);
 }
 
-p {
+body {
     font-size: var(--text-base);
 }
 

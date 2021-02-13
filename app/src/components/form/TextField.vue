@@ -1,7 +1,10 @@
 <template>
   <BaseField>
     <template #field>
-        <input type="text">
+        <input type="text"
+          :value="modelValue"
+          @input="onInput"
+          :placeholder="placeholder">
     </template>
   </BaseField>
 </template>
@@ -14,6 +17,27 @@ export default {
     
     components: {
         BaseField
+    },
+    
+    props: {
+      modelValue: {
+        type: String,
+        required: true
+      },
+      
+      placeholder: {
+        type: String,
+        required: false,
+        default: ''
+      }
+    },
+    
+    methods: {
+      onInput(event) {
+        const value = event.target.value;
+
+        this.$emit('update:modelValue', value);
+      }
     }
 }
 </script>
