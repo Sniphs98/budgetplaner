@@ -26,18 +26,24 @@ export default {
 
 <style scoped>
 input,
-textarea {
-    border: 2px solid var(--grey-300);
-    background-color: var(--grey-100);
-    color: var(--grey-800);
-    border-radius: 4px;
+select {
     height: 42px;
-    width: 100%;
     padding: 4px;
 }
 
 textarea {
     resize: vertical;
+    padding: 12px 6px;
+}
+
+input,
+textarea,
+select {
+    border: 2px solid var(--grey-300);
+    background-color: var(--grey-100);
+    color: var(--grey-800);
+    border-radius: 4px;
+    width: 100%;
 }
 
 input::placeholder,

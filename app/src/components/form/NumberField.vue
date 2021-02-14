@@ -4,7 +4,6 @@
         <input type="number"
             :value="modelValue"
             @input="onInput"
-            @blur="fitValueIntoRange"
             :placeholder="placeholder"
             :min="min"
             :max="max">
@@ -52,16 +51,6 @@ export default {
             const value = Number(event.target.value);
             
             this.$emit('update:modelValue', value);
-        },
-        
-        fitValueIntoRange(event) {
-            const value = Number(event.target.value);
-            
-            if (value > this.max) {
-                this.$emit('update:modelValue', this.max);
-            } else if (value < this.min) {
-                this.$emit('update:modelValue', this.min);
-            }
         }
     }
 }
