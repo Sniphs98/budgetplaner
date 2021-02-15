@@ -11,7 +11,6 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue
-    @org.hibernate.annotations.Type(type="org.hibernate.type.UUIDCharType")
     int userId;
     String firstname;
     String lastname;
