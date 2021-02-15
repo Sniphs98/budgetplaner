@@ -27,7 +27,11 @@ export default {
                 },
                 {
                     name: 'create',
-                    text: 'Create'
+                    text: 'Create Project'
+                },
+                {
+                    name: 'user.create',
+                    text: 'Create User'
                 }
             ]
         }

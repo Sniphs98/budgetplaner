@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Create from './pages/Create.vue';
 import Detail from './pages/Detail.vue';
 import Index from './pages/Index.vue';
+import UserCreate from './pages/UserCreate.vue';
 
 const routes = [
     {
@@ -20,6 +21,11 @@ const routes = [
         path: '/detail/:id',
         name: 'detail',
         component: Detail
+    },
+    {
+        path: '/user/create',
+        name: 'user.create',
+        component: UserCreate
     }
 ];
 
