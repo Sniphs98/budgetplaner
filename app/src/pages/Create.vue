@@ -37,6 +37,7 @@ export default {
         return httpApi.post('http://localhost:8080/project/create', {
           goalMoney: this.goalMoney,
           title: this.title,
+          currentMoney: 0,
           description: this.description
         })
       },
@@ -44,6 +45,7 @@ export default {
       resetData() {
         this.title = '';
         this.goalMoney = 0;
+        this.currentMoney = 0;
         this.description = '';
       }
     }

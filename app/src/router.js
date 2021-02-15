@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 /* importing page components */
 import Create from './pages/Create.vue';
+import Detail from './pages/Detail.vue';
 import Index from './pages/Index.vue';
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
         path: '/create',
         name: 'create',
         component: Create
+    },
+    {
+        path: '/detail/:id',
+        name: 'detail',
+        component: Detail
     }
 ];
 
