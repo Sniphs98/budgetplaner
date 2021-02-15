@@ -2,7 +2,6 @@
   <div class="container">
       <TextField v-model="title" label="Title" placeholder="Enter a title..." />
       <NumberField v-model="goalMoney" label="Money target" min="0" placeholder="Enter a moneny target" />
-      <SelectField v-model="selectValue" :options="options" />
       <TextArea v-model="description" label="Description" placeholder="Add a description..." />
       
       <Button @click="onSubmit">
@@ -21,9 +20,7 @@ export default {
       return {
         title: '',
         goalMoney: 0,
-        description: '',
-        options: [],
-        selectValue: ''
+        description: ''
       }
     },
     

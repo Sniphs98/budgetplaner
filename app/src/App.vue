@@ -2,16 +2,20 @@
   <Header class="app__header" />
   
   <router-view></router-view>
+  
+  <NotificationCenter />
 </template>
 
 <script>
+import NotificationCenter from './components/NotificationCenter.vue';
 import Header from './components/layout/Header.vue';
 
 export default {
   name: "App",
   
   components: {
-    Header
+    Header,
+    NotificationCenter
   }
 };
 </script>

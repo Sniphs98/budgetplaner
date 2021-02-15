@@ -40,11 +40,31 @@ export default {
     computed: {
         isDonationButtonDisabled() {
             return !this.donationValue;
+        },
+        
+        canDonate() {
+            const summedMoney = this.project.currentMoney + this.donationValue;
+            
+            if (summedMoney > this.project.goalMoney) {
+                return false;
+            }
+            
+            return true;
         }
     },
     
     methods: {
         updateCollectedMoney() {
+            if (!this.canDonate) {
+                this.$store.dispatch('createNotification', {
+                    title: 'Can\'t donate',
+                    message: 'You can\'t create a notification because the money target has been reached.',
+                    type: 'error'
+                });
+                
+                return;
+            }
+            
             const project = {...this.project};
             project.currentMoney += this.donationValue;
             

@@ -2,11 +2,13 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from './router.js';
 import './styles/all.css';
+import store from './store';
 
 const app = createApp(App);
 
 /* Adding plugins */
 app.use(router);
+app.use(store);
 
 /* Registering global components */
 import TextField from './components/form/TextField.vue';
