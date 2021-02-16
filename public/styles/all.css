@@ -1,0 +1,37 @@
+.main-nav {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.main-section {
+    margin-top: 32px;
+}
+
+#project-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    gap: 16px;
+}
+
+.donation-box {
+    width: 100%;
+    background-color: var(--bs-light);
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.donation-box__inputs {
+    display: flex;
+}
+
+.donation-box__inputs button {
+    margin-left: 16px;
+}
+
+.donation-information {
+    margin-bottom: 1rem;
+}
+
+.donation-information-value {
+    font-size: 24px;
+}
