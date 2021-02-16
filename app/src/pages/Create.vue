@@ -4,6 +4,8 @@
       <NumberField v-model="goalMoney" label="Money target" min="0" placeholder="Enter a moneny target" />
       <TextArea v-model="description" label="Description" placeholder="Add a description..." />
       
+      {{users}}
+      
       <Button @click="onSubmit">
         Submit
       </Button>
@@ -24,6 +26,12 @@ export default {
       }
     },
     
+    created() {
+      this.fetchUsers().then(users => {
+        this.users = users;
+      });
+    },
+    
     methods: {
       onSubmit() {
         this.createProject()
@@ -37,6 +45,11 @@ export default {
           currentMoney: 0,
           description: this.description
         })
+      },
+      
+      fetchUsers() {
+        return httpApi.get('http://localhost:8080/user/getAll')
+          .then(users => users.json());
       },
       
       resetData() {
