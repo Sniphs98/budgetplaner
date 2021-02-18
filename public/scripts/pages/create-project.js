@@ -1,4 +1,5 @@
-import httpApi from '../utils/httpApi.utils.js';
+import getInputValue from '../helper/input.js';
+import httpApi from '../service/httpApi.js';
 const api = new httpApi();
 
 const button = document.getElementById('create-project-btn');
@@ -14,9 +15,9 @@ function handleFormSubmit(event) {
 }
 
 function getProjectInformation() {
-    const title = document.getElementById('title').value;
-    const goalMoney = Number(document.getElementById('money-target').value);
-    const description = document.getElementById('description').value;
+    const title = getInputValue(document.getElementById('title'));
+    const goalMoney = getInputValue(document.getElementById('money-target'));
+    const description = getInputValue(document.getElementById('description'));
     
     return {
         title,
@@ -47,7 +48,7 @@ function getProjectDefaults() {
 
 function createProject(project) {
     const mergedProjectInformation = mergeProjectInfoWithDefaults(project);
-    
+
     return api.post('/project/create', mergedProjectInformation);
 }
 

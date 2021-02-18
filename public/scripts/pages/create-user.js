@@ -1,4 +1,5 @@
-import httpApi from '../utils/httpApi.utils.js';
+import getInputValue from '../helper/input.js';
+import httpApi from '../service/httpApi.js';
 const api = new httpApi();
 
 const button = document.getElementById('create-user-btn');
@@ -12,8 +13,8 @@ function handeFormSubmit(event) {
 }
 
 function getUserInformation() {
-    const firstname = document.getElementById('firstname').value;
-    const lastname = document.getElementById('lastname').value;
+    const firstname = getInputValue(document.getElementById('firstname'));
+    const lastname = getInputValue(document.getElementById('lastname'));
     
     return {
         firstname,

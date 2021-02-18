@@ -1,4 +1,7 @@
-import httpApi from '../utils/httpApi.utils.js';
+import { getUserByName } from '../helper/login.js';
+import getInputValue from '../helper/input.js';
+import loginApi from '../service/login.js';
+import httpApi from '../service/httpApi.js';
 const api = new httpApi();
 
 getProjects();
@@ -41,4 +44,16 @@ function createProjectCard(project) {
     cardBody.appendChild(link);
     
     return cardElement;
+}
+
+const loginButton = document.getElementById('login-button');
+loginButton.addEventListener('click', logUserIn);
+
+async function logUserIn() {
+    const firstname = getInputValue(document.getElementById('login-firstname'));
+    const lastname = getInputValue(document.getElementById('login-lastname'));
+    
+    const user = await getUserByName(firstname, lastname);
+
+    loginApi.login(user);
 }
