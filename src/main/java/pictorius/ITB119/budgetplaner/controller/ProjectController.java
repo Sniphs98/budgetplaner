@@ -35,4 +35,8 @@ public class ProjectController {
         return projectServices.getByProjectById(id);
     }
 
+    @GetMapping("/getAllUnfinishedProjects")
+    public List<Project> getListOfUnfinishedProjects(){
+        return projectServices.getListOfUnfinishedProjects();
+    }
 }
