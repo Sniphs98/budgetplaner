@@ -11,13 +11,15 @@ public class User {
     @Id
     @GeneratedValue
     int userId;
-    String userName;
+    String firstName;
+    String lastName;
     String password;
 
     public User() {}
 
-    public User(String username, String password) {
-        this.userName = username;
+    public User(String firstName, String lastName, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
     }
 }

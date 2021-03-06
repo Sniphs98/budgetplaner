@@ -30,7 +30,7 @@ public class UserServices {
     }
 
     public User loginUser(User user) {
-        User tempUser =  userRepository.findByUserName(user.getUserName());
+        User tempUser =  userRepository.findByFirstNameAndLastName(user.getFirstName(),user.getLastName());
         if (tempUser.getPassword().equals(user.getPassword())) {
             return tempUser;
         }else {
