@@ -12,13 +12,13 @@ public class User {
     @Id
     @GeneratedValue
     int userId;
-    String firstname;
-    String lastname;
+    String userName;
+    String password;
 
     public User() {}
 
-    public User(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public User(String username, String password) {
+        this.userName = username;
+        this.password = password;
     }
 }

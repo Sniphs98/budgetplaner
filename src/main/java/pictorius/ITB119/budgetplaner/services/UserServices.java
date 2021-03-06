@@ -28,4 +28,13 @@ public class UserServices {
     public User getByUserId(int id) {
         return userRepository.findByUserId(id);
     }
+
+    public User loginUser(User user) {
+        User tempUser =  userRepository.findByUserName(user.getUserName());
+        if (tempUser.getPassword().equals(user.getPassword())) {
+            return tempUser;
+        }else {
+            return null;
+        }
+    }
 }
