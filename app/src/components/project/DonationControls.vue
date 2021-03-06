@@ -64,7 +64,9 @@ export default {
   },
 
   methods: {
-    onFormSubmit() {
+    onFormSubmit(event) {
+      event.preventDefault();
+
       this.$emit('donate', Number(this.toBeDonatedValue));
     }
   }

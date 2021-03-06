@@ -8,16 +8,7 @@
           </router-link>
         </b-navbar-nav>
 
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav class="ml-auto">
-            <b-nav-item-dropdown right>
-              <template #button-content>
-                <b-icon icon="person-circle" class="mr-2"></b-icon>
-              </template>
-              <b-dropdown-item href="#">Login</b-dropdown-item>
-            </b-nav-item-dropdown>
-          </b-navbar-nav>
-        </b-collapse>
+        <router-link :to="{ name: 'Login' }" class="btn btn-primary">Sign up</router-link>
       </div>
     </b-navbar>
   </header>
