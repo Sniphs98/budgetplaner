@@ -33,6 +33,7 @@
           <b-btn type="submit" variant="primary">Login</b-btn>
         </b-form>
       </b-card>
+
       <b-card title="Sign up">
         <b-form @submit="onSignUp">
           <b-row>
@@ -106,10 +107,12 @@ export default {
       const userName = this.signUp.firstname + ' ' + this.signUp.lastname;
 
       post('user/create', {
-        userName,
+        userName: userName,
+        firstName: this.signUp.firstname,
+        lastName: this.signUp.lastname,
         password: this.signUp.password
       }).then(() => {
-        this.loginUser(userName, this.signUp.password);
+        this.loginUser(userName, this.signUp.password, this.signUp.firstname, this.signUp.lastname);
       })
     },
 
@@ -118,12 +121,14 @@ export default {
 
       const userName = this.login.firstname + ' ' + this.login.lastname;
 
-      this.loginUser(userName, this.login.password)
+      this.loginUser(userName, this.login.password, this.login.firstname, this.login.lastname)
     },
 
-    loginUser(username, password) {
+    loginUser(username, password, firstname, lastname) {
       post('user/login', {
         userName: username,
+        firstName: firstname,
+        lastName: lastname,
         password
       }).then(response => response.json())
         .then(user => {

@@ -20,7 +20,7 @@
 
     <b-form @submit="onFormSubmit">
       <b-row>
-        <b-col cols="8">
+        <b-col class="d-flex flex-nowrap">
           <b-form-input v-model="toBeDonatedValue"
                         type="number"
                         placeholder="Enter value..."
@@ -28,11 +28,10 @@
                         :max="maxDonationValue"
                         required>
           </b-form-input>
-        </b-col>
 
-        <b-col cols="4">
           <b-btn v-if="loginService.isLoggedIn()"
                  type="submit"
+                 class="ml-3"
                  variant="primary">
             Donate
           </b-btn>
@@ -40,6 +39,7 @@
           <template v-else>
             <div v-b-tooltip.right="'You\'re not logged in.'">
               <b-btn type="submit"
+                     class="ml-3"
                      id="donate-btn"
                      variant="primary"
                      disabled>
@@ -97,5 +97,9 @@ export default {
 .donation-controls__value {
   font-size: 22px;
   font-weight: 600;
+}
+
+.donation-controls__inputs {
+  flex-wrap: nowrap;
 }
 </style>

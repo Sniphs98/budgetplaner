@@ -1,22 +1,22 @@
 <template>
   <div v-if="project" class="container">
-    <div class="row">
-      <div class="col-8">
+    <b-row>
+      <b-col cols="12" lg="6" xl="8">
         <h1>{{ project.title }}</h1>
 
         <p>{{ project.description }}</p>
-      </div>
+      </b-col>
 
-      <div class="col-4">
+      <b-col cols="12" lg="6" xl="4">
         <DonationControls :project="project" @donate="onDonate" />
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
 import { get, post } from '@/service/entity.service';
-import DonationControls from "@/components/project/DonationControls";
+import DonationControls from "@/components/pages/detail/components/DonationControls";
 import LoginService from "@/service/login.service";
 
 export default {

@@ -1,18 +1,16 @@
 <template>
-  <b-card>
-    <b-card-text class="empty-state-body">
-      <slot name="default">
-        <b-icon v-if="icon"
-                :icon="icon"
-                class="empty-state-icon">
-        </b-icon>
+  <div class="empty-state">
+    <slot name="default">
+      <b-icon v-if="icon"
+              :icon="icon"
+              class="empty-state-icon">
+      </b-icon>
 
-        <h4 class="empty-state-title">{{ title }}</h4>
+      <h4 class="empty-state-title">{{ title }}</h4>
 
-        <p class="empty-state-description">{{ description }}</p>
-      </slot>
-    </b-card-text>
-  </b-card>
+      <p class="empty-state-description">{{ description }}</p>
+    </slot>
+  </div>
 </template>
 
 <script>
