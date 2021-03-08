@@ -1,8 +1,12 @@
 package pictorius.ITB119.budgetplaner.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pictorius.ITB119.budgetplaner.modull.Project;
+import pictorius.ITB119.budgetplaner.modull.ProjectPage;
 import pictorius.ITB119.budgetplaner.services.ProjectServices;
 
 import java.util.List;
@@ -21,8 +25,8 @@ public class ProjectController {
     }
 
     @GetMapping("/getAll")
-    public List<Project> getListOfProjects(){
-        return projectServices.getListOfProjects();
+    public ResponseEntity<Page<Project>> getListOfProjects(ProjectPage projectPage){
+        return new ResponseEntity<>(projectServices.getListOfProjects(projectPage), HttpStatus.OK);
     }
 
     @PostMapping("/updateProject")
@@ -36,7 +40,7 @@ public class ProjectController {
     }
 
     @GetMapping("/getAllUnfinishedProjects")
-    public List<Project> getListOfUnfinishedProjects(){
-        return projectServices.getListOfUnfinishedProjects();
+    public ResponseEntity<Page<Project>> getListOfUnfinishedProjects(ProjectPage projectPage){
+        return new ResponseEntity<>(projectServices.getListOfUnfinishedProjects(projectPage), HttpStatus.OK);
     }
 }
