@@ -5,7 +5,8 @@
 
     <h2>Create project</h2>
 
-    <b-form @submit="onSubmitProject">
+    <b-form @submit="onSubmitProject"
+      class="mb-4">
       <b-row>
         <b-col cols="6">
           <b-form-group label="Title">
@@ -47,6 +48,22 @@
       </b-row>
     </b-form>
 
+    <h2>Transactions</h2>
+
+    <b-list-group v-if="userTransactions.length > 0">
+      <b-list-group-item v-for="currentTransaction in userTransactions"
+                         :key="currentTransaction.transactionId"
+                         class="transaction-list-item">
+        <span>Project: {{ currentTransaction.projectId }}</span>
+
+        <span class="transaction-list-amount">You've donated: ${{ currentTransaction.money }}</span>
+      </b-list-group-item>
+    </b-list-group>
+
+    <EmptyState v-else title="No transactions"
+                icon="bag"
+                description="You have not made any transactions yet." />
+
     <hr>
     <p>To log out click <b-link v-b-modal.logoutModal class="link-danger">here.</b-link></p>
 
@@ -63,14 +80,15 @@
 <script>
 import LoginService from "@/service/login.service";
 import LogoutModal from "@/components/common/LogoutModal";
-import {post} from "@/service/entity.service";
+import { get, post } from "@/service/entity.service";
 
 export default {
   name: "Account",
-  components: {LogoutModal},
+  components: { LogoutModal },
   data() {
     return {
       user: null,
+      transactions: [],
       project: {
         title: '',
         goalMoney: null,
@@ -80,12 +98,22 @@ export default {
   },
 
   created() {
-    this.user = this.loginService.getUser()
+    this.user = this.loginService.getUser();
+
+    this.getTransactions();
   },
 
   computed: {
     loginService() {
       return new LoginService();
+    },
+
+    userTransactions() {
+      const userId = this.loginService.getUser().userId;
+
+      return this.transactions.filter(currentTransaction => {
+        return currentTransaction.userId === userId;
+      })
     }
   },
 
@@ -94,6 +122,12 @@ export default {
       event.preventDefault();
 
       this.createProject();
+    },
+
+    getTransactions() {
+      get('transaction/getAll').then(transactions => {
+        this.transactions = transactions;
+      })
     },
 
     resetProjectData() {
@@ -140,5 +174,12 @@ export default {
 </script>
 
 <style scoped>
+.transaction-list-item {
+  display: grid;
+  grid-template-columns: 1fr 20%;
+}
 
+.transaction-list-amount {
+  text-align: right;
+}
 </style>

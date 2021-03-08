@@ -11,6 +11,10 @@ Vue.use(BootstrapVueIcons);
 
 import './assets/styles/all.css';
 
+// importing global components
+import EmptyState from "@/components/common/EmptyState";
+Vue.component('EmptyState', EmptyState)
+
 Vue.config.productionTip = false
 
 new Vue({

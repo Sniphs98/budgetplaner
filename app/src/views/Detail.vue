@@ -17,6 +17,7 @@
 <script>
 import { get, post } from '@/service/entity.service';
 import DonationControls from "@/components/project/DonationControls";
+import LoginService from "@/service/login.service";
 
 export default {
   name: 'Detail',
@@ -35,6 +36,12 @@ export default {
     this.fetchProject();
   },
 
+  computed: {
+    loginService() {
+      return new LoginService();
+    }
+  },
+
   methods: {
     fetchProject() {
       const projectId = this.$route.params.id;
@@ -45,7 +52,17 @@ export default {
     onDonate(donationValue) {
       this.project.currentMoney += donationValue;
 
-      post('project/updateProject', this.project);
+      post('project/updateProject', this.project).then(() => {
+        this.createTransaction();
+      });
+    },
+
+    createTransaction() {
+      post('transaction/create', {
+        userId: this.loginService.getUser().userId,
+        money: this.project.currentMoney,
+        projectId: this.project.projectId
+      })
     }
   }
 }
