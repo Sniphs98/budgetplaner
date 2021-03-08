@@ -31,9 +31,22 @@
         </b-col>
 
         <b-col cols="4">
-          <b-btn variant="primary" type="submit">
+          <b-btn v-if="loginService.isLoggedIn()"
+                 type="submit"
+                 variant="primary">
             Donate
           </b-btn>
+
+          <template v-else>
+            <div v-b-tooltip.right="'You\'re not logged in.'">
+              <b-btn type="submit"
+                     id="donate-btn"
+                     variant="primary"
+                     disabled>
+                Donate
+              </b-btn>
+            </div>
+          </template>
         </b-col>
       </b-row>
     </b-form>
@@ -41,6 +54,8 @@
 </template>
 
 <script>
+import LoginService from "@/service/login.service";
+
 export default {
   name: "DonationControls",
 
@@ -54,7 +69,11 @@ export default {
   computed: {
     maxDonationValue() {
       return this.project.goalMoney - this.project.currentMoney;
-    }
+    },
+
+    loginService() {
+      return new LoginService();
+    },
   },
 
   data() {

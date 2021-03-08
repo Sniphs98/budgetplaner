@@ -4,13 +4,13 @@ SHELL := /bin/bash
 
 start: # Start the java server (use for production)
 	@./mvnw spring-boot:run
-	
-build: # Bundling files for production 
+
+build: # Bundling files for production
 	@npm --prefix ./app run build
-	
+
 dev: # Starts a local dev server
-	@npm --prefix ./app run dev
-	
+	@npm --prefix ./app run serve
+
 lint: # Lint frontend code with esling
 	@npm --prefix ./app run lint
 

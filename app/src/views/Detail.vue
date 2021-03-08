@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { get, update } from '@/service/entity.service';
+import { get, post } from '@/service/entity.service';
 import DonationControls from "@/components/project/DonationControls";
 
 export default {
@@ -45,7 +45,7 @@ export default {
     onDonate(donationValue) {
       this.project.currentMoney += donationValue;
 
-      update('project/updateProject', this.project);
+      post('project/updateProject', this.project);
     }
   }
 }

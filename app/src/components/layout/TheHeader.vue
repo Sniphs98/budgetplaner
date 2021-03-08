@@ -8,15 +8,29 @@
           </router-link>
         </b-navbar-nav>
 
-        <router-link :to="{ name: 'Login' }" class="btn btn-primary">Sign up</router-link>
+        <router-link v-if="!loginService.isLoggedIn()" :to="{ name: 'Login' }">
+          <b-btn variant="outline-secondary">Sign up</b-btn>
+        </router-link>
+
+        <router-link v-else :to="{ name: 'Account' }">
+          <b-btn variant="primary">Account</b-btn>
+        </router-link>
       </div>
     </b-navbar>
   </header>
 </template>
 
 <script>
+import LoginService from "@/service/login.service";
+
 export default {
-  name: "TheHeader"
+  name: "TheHeader",
+
+  computed: {
+    loginService() {
+      return new LoginService();
+    }
+  },
 }
 </script>
 

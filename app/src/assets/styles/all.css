@@ -1,0 +1,7 @@
+.link-danger {
+    color: #dc3545;
+}
+
+.link-danger:hover {
+    color: #bd2130;
+}

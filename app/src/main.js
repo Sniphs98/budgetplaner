@@ -6,11 +6,10 @@ import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import Loader from './components/common/loader';
-Vue.component('Loader', Loader);
-
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
+
+import './assets/styles/all.css';
 
 Vue.config.productionTip = false
 
