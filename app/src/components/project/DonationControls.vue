@@ -87,6 +87,7 @@ export default {
       event.preventDefault();
 
       this.$emit('donate', Number(this.toBeDonatedValue));
+      this.toBeDonatedValue = null;
     }
   }
 }

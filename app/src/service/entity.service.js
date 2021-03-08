@@ -1,4 +1,4 @@
-const BASE_PATH = 'http://localhost:8080/';
+const BASE_PATH = '/';
 
 function getFullPath(path) {
     return BASE_PATH + path;
