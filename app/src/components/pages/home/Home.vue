@@ -2,8 +2,14 @@
   <div>
     <TheHeader></TheHeader>
 
-    <div class="home mb-5">
-      <div class="container home__listing">
+    <div class="container home mb-5">
+      <b-pagination :value="page"
+                    :total-rows="total"
+                    :per-page="limit"
+                    @change="onPageClick"
+                    class="mb-3" />
+
+      <div class="home__listing">
         <ProjectCard v-for="project in projects"
                      :key="project.projectId"
                      :project="project" />
@@ -27,7 +33,10 @@ export default {
 
   data() {
     return {
-      projects: []
+      projects: [],
+      page: 1,
+      total: 0,
+      limit: 12
     }
   },
 
@@ -35,11 +44,24 @@ export default {
     this.fetchProjects();
   },
 
+  computed: {
+    pageQueryParam() {
+      return this.page - 1;
+    }
+  },
+
   methods: {
     fetchProjects() {
-      get('project/getAllUnfinishedProjects').then(res => {
+      get(`project/getAll?pageNumber=${this.pageQueryParam}&pageSize=${this.limit}`).then(res => {
+        this.total = res.totalElements;
         this.projects = res.content;
       })
+    },
+
+    onPageClick(page) {
+      this.page = page;
+
+      this.fetchProjects();
     }
   }
 }
