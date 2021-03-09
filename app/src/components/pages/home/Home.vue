@@ -52,7 +52,7 @@ export default {
 
   methods: {
     fetchProjects() {
-      get(`project/getAll?pageNumber=${this.pageQueryParam}&pageSize=${this.limit}`).then(res => {
+      get(`project/getAllUnfinishedProjects?pageNumber=${this.pageQueryParam}&pageSize=${this.limit}`).then(res => {
         this.total = res.totalElements;
         this.projects = res.content;
       })
