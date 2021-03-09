@@ -40,6 +40,15 @@ public class ProjectServices {
         Sort sort = Sort.by(projectPage.getSortDirection(),projectPage.getSortBy());
         Pageable pageable = PageRequest.of(projectPage.getPageNumber(),projectPage.getPageSize(),sort);
 
+        int counter = 0;
+        for (Project project:projectRepository.findAll()) {
+            int res = project.getGoalMoney().compareTo(project.getCurrentMoney());
+            if (res == 1) {
+                counter++;
+            }
+        }
+
+        //find all unfinished Projects
         for (Project project:projectRepository.findAll(pageable)) {
             int res = project.getGoalMoney().compareTo(project.getCurrentMoney());
             if (res == 1){
@@ -47,7 +56,9 @@ public class ProjectServices {
             }
         }
 
+        System.out.println(counter);
+
         return new PageImpl<Project>(unfinishedProjects, PageRequest.of(projectPage.getPageNumber(),
-                projectPage.getPageSize(), sort), unfinishedProjects.size());
+                projectPage.getPageSize(), sort), counter);
     }
 }
