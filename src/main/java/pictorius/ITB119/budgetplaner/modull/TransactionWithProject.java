@@ -2,28 +2,26 @@ package pictorius.ITB119.budgetplaner.modull;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.UUID;
 
 @Data
-@Entity
-public class Transaction {
+public class TransactionWithProject {
     @Id
-    @GeneratedValue
     int transactionId;
     int userId;
     BigDecimal money;
     int projectId;
+    Project project;
 
+    public TransactionWithProject() {    }
 
-    public Transaction() {
-    }
-
-    public Transaction(int userId, BigDecimal money, int projectId) {
+    public TransactionWithProject(int userId, BigDecimal money, int projectId, Project project) {
         this.userId = userId;
         this.money = money;
         this.projectId = projectId;
+        this.project = project;
     }
 }
+
+

@@ -3,6 +3,7 @@ package pictorius.ITB119.budgetplaner.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pictorius.ITB119.budgetplaner.modull.Transaction;
+import pictorius.ITB119.budgetplaner.modull.TransactionWithProject;
 import pictorius.ITB119.budgetplaner.services.TransactionServices;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class TransactionController {
     }
 
     @GetMapping("/getAll")
-    public List<Transaction> getListOfTransactions(){
+    public List<TransactionWithProject> getListOfTransactions(){
         return transactionServices.getListOfTransactions();
     }
 
