@@ -1,16 +1,20 @@
 <template>
-  <div v-if="project" class="container">
-    <b-row>
-      <b-col cols="12" lg="6" xl="8">
-        <h1>{{ project.title }}</h1>
+  <div>
+    <TheHeader></TheHeader>
 
-        <p>{{ project.description }}</p>
-      </b-col>
+    <div v-if="project" class="container">
+      <b-row>
+        <b-col cols="12" lg="6" xl="8">
+          <h1>{{ project.title }}</h1>
 
-      <b-col cols="12" lg="6" xl="4">
-        <DonationControls :project="project" @donate="onDonate" />
-      </b-col>
-    </b-row>
+          <p>{{ project.description }}</p>
+        </b-col>
+
+        <b-col cols="12" lg="6" xl="4">
+          <DonationControls :project="project" @donate="onDonate" />
+        </b-col>
+      </b-row>
+    </div>
   </div>
 </template>
 
@@ -18,12 +22,14 @@
 import { get, post } from '@/service/entity.service';
 import DonationControls from "@/components/pages/detail/components/DonationControls";
 import LoginService from "@/service/login.service";
+import TheHeader from "@/components/layout/TheHeader";
 
 export default {
   name: 'Detail',
 
   components: {
-    DonationControls
+    DonationControls,
+    TheHeader
   },
 
   data() {

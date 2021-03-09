@@ -1,21 +1,26 @@
 <template>
-  <div class="container" v-if="user">
-    <h1>Welcome, {{ user.firstName }}!</h1>
-    <p>Here you can see your projects, create new ones and manage your account.</p>
+  <div>
+    <TheHeader></TheHeader>
 
-    <CreateProject />
+    <div class="container" v-if="user">
+      <h1>Welcome, {{ user.firstName }}!</h1>
+      <p>Here you can see your projects, create new ones and manage your account.</p>
 
-    <TransactionList />
+      <CreateProject />
 
-    <hr>
-    <p>To log out click <b-link v-b-modal.logoutModal class="link-danger">here.</b-link></p>
+      <TransactionList />
 
-    <LogoutModal />
-  </div>
+      <hr>
 
-  <div v-else>
-    <div class="container">
-      <b-alert variant="danger" show>You're not logged in</b-alert>
+      <p>To log out click <b-link v-b-modal.logoutModal class="link-danger">here.</b-link></p>
+
+      <LogoutModal />
+    </div>
+
+    <div v-else>
+      <div class="container">
+        <b-alert variant="danger" show>You're not logged in</b-alert>
+      </div>
     </div>
   </div>
 </template>
@@ -25,11 +30,12 @@ import LoginService from "@/service/login.service";
 import LogoutModal from "@/components/pages/account/components/LogoutModal";
 import CreateProject from "@/components/pages/account/components/CreateProject";
 import TransactionList from "@/components/pages/account/components/TransactionList";
+import TheHeader from "@/components/layout/TheHeader";
 
 export default {
   name: "Account",
 
-  components: {TransactionList, CreateProject, LogoutModal },
+  components: {TransactionList, CreateProject, LogoutModal, TheHeader },
 
   data() {
     return {

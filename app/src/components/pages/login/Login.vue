@@ -1,82 +1,91 @@
 <template>
-  <div class="container">
-    <b-card-group>
-      <b-card title="Log in">
-        <b-form @submit="onLogin">
-          <b-row>
-            <b-col cols="6">
-              <b-form-group label="Firstname">
-                <b-form-input v-model="login.firstname"
-                              id="login-firstname"
-                              type="text"
-                              required />
-              </b-form-group>
-            </b-col>
+  <div>
+    <TheHeader></TheHeader>
 
-            <b-col cols="6">
-              <b-form-group label="Lastname">
-                <b-form-input v-model="login.lastname"
-                              id="login-lastname"
-                              type="text"
-                              required />
-              </b-form-group>
-            </b-col>
-          </b-row>
+    <div class="container">
+      <b-card-group>
+        <b-card title="Log in">
+          <b-form @submit="onLogin">
+            <b-row>
+              <b-col cols="6">
+                <b-form-group label="Firstname">
+                  <b-form-input v-model="login.firstname"
+                                id="login-firstname"
+                                type="text"
+                                required />
+                </b-form-group>
+              </b-col>
 
-          <b-form-group label="Password">
-            <b-form-input v-model="login.password"
-                          id="login-password"
-                          type="password"
-                          required />
-          </b-form-group>
+              <b-col cols="6">
+                <b-form-group label="Lastname">
+                  <b-form-input v-model="login.lastname"
+                                id="login-lastname"
+                                type="text"
+                                required />
+                </b-form-group>
+              </b-col>
+            </b-row>
 
-          <b-btn type="submit" variant="primary">Login</b-btn>
-        </b-form>
-      </b-card>
+            <b-form-group label="Password">
+              <b-form-input v-model="login.password"
+                            id="login-password"
+                            type="password"
+                            required />
+            </b-form-group>
 
-      <b-card title="Sign up">
-        <b-form @submit="onSignUp">
-          <b-row>
-            <b-col cols="6">
-              <b-form-group label="Firstname">
-                <b-form-input v-model="signUp.firstname"
-                              id="signup-firstname"
-                              type="text"
-                              required />
-              </b-form-group>
-            </b-col>
+            <b-btn type="submit" variant="primary">Login</b-btn>
+          </b-form>
+        </b-card>
 
-            <b-col cols="6">
-              <b-form-group label="Lastname">
-                <b-form-input v-model="signUp.lastname"
-                              id="signup-lastname"
-                              type="text"
-                              required />
-              </b-form-group>
-            </b-col>
-          </b-row>
+        <b-card title="Sign up">
+          <b-form @submit="onSignUp">
+            <b-row>
+              <b-col cols="6">
+                <b-form-group label="Firstname">
+                  <b-form-input v-model="signUp.firstname"
+                                id="signup-firstname"
+                                type="text"
+                                required />
+                </b-form-group>
+              </b-col>
 
-          <b-form-group label="Password">
-            <b-form-input v-model="signUp.password"
-                          id="signup-password"
-                          type="password"
-                          required />
-          </b-form-group>
+              <b-col cols="6">
+                <b-form-group label="Lastname">
+                  <b-form-input v-model="signUp.lastname"
+                                id="signup-lastname"
+                                type="text"
+                                required />
+                </b-form-group>
+              </b-col>
+            </b-row>
 
-          <b-btn type="reset" variant="outline-danger mr-3">Reset</b-btn>
-          <b-btn type="submit" variant="primary">Sign up</b-btn>
-        </b-form>
-      </b-card>
-    </b-card-group>
+            <b-form-group label="Password">
+              <b-form-input v-model="signUp.password"
+                            id="signup-password"
+                            type="password"
+                            required />
+            </b-form-group>
+
+            <b-btn type="reset" variant="outline-danger mr-3">Reset</b-btn>
+            <b-btn type="submit" variant="primary">Sign up</b-btn>
+          </b-form>
+        </b-card>
+      </b-card-group>
+    </div>
   </div>
 </template>
 
 <script>
 import { post } from '@/service/entity.service';
 import LoginService from '@/service/login.service';
+import TheHeader from "@/components/layout/TheHeader";
 
 export default {
   name: "Login",
+
+  components: {
+    TheHeader
+  },
 
   data() {
     return {

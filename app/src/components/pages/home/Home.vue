@@ -1,9 +1,13 @@
 <template>
-  <div class="home mb-5">
-    <div class="container home__listing">
-      <ProjectCard v-for="project in projects"
-                   :key="project.projectId"
-                   :project="project" />
+  <div>
+    <TheHeader></TheHeader>
+
+    <div class="home mb-5">
+      <div class="container home__listing">
+        <ProjectCard v-for="project in projects"
+                     :key="project.projectId"
+                     :project="project" />
+      </div>
     </div>
   </div>
 </template>
@@ -11,12 +15,14 @@
 <script>
 import { get } from '@/service/entity.service';
 import ProjectCard from '@/components/pages/home/components/ProjectCard';
+import TheHeader from "@/components/layout/TheHeader";
 
 export default {
   name: 'Home',
 
   components: {
-    ProjectCard
+    ProjectCard,
+    TheHeader
   },
 
   data() {
@@ -32,7 +38,7 @@ export default {
   methods: {
     fetchProjects() {
       get('project/getAllUnfinishedProjects').then(res => {
-        this.projects = res;
+        this.projects = res.content;
       })
     }
   }

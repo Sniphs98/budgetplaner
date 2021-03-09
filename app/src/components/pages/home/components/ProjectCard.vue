@@ -29,6 +29,9 @@ export default {
 <style scoped>
 .project-card .card-text {
   height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .project-card a {
