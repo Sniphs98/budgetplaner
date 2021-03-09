@@ -37,28 +37,23 @@ public class ProjectServices {
 
     public Page<Project> getListOfUnfinishedProjects(ProjectPage projectPage){
         List<Project> unfinishedProjects = new ArrayList<>();
-        Sort sort = Sort.by(projectPage.getSortDirection(),projectPage.getSortBy());
-        Pageable pageable = PageRequest.of(projectPage.getPageNumber(),projectPage.getPageSize(),sort);
 
-        int counter = 0;
         for (Project project:projectRepository.findAll()) {
-            int res = project.getGoalMoney().compareTo(project.getCurrentMoney());
-            if (res == 1) {
-                counter++;
-            }
-        }
-
-        //find all unfinished Projects
-        for (Project project:projectRepository.findAll(pageable)) {
             int res = project.getGoalMoney().compareTo(project.getCurrentMoney());
             if (res == 1){
                 unfinishedProjects.add(project);
             }
         }
 
-        System.out.println(counter);
+        Sort sort = Sort.by(projectPage.getSortDirection(),projectPage.getSortBy());
+        Pageable pageable = PageRequest.of(projectPage.getPageNumber(),projectPage.getPageSize(),sort);
 
-        return new PageImpl<Project>(unfinishedProjects, PageRequest.of(projectPage.getPageNumber(),
-                projectPage.getPageSize(), sort), counter);
+        final int start = (int)pageable.getOffset();
+        final int end = Math.min((start + pageable.getPageSize()), unfinishedProjects.size());
+        final Page<Project> page = new PageImpl<>(unfinishedProjects.subList(start, end), pageable, unfinishedProjects.size());
+
+
+
+        return page;
     }
 }
