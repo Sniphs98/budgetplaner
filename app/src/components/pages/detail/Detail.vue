@@ -34,7 +34,8 @@ export default {
 
   data() {
     return {
-      project: null
+      project: null,
+      donationValue: 0
     }
   },
 
@@ -56,7 +57,8 @@ export default {
     },
 
     onDonate(donationValue) {
-      this.project.currentMoney += donationValue;
+      this.donationValue = donationValue;
+      this.project.currentMoney += this.donationValue;
 
       post('project/updateProject', this.project).then(() => {
         this.createTransaction();
@@ -66,7 +68,7 @@ export default {
     createTransaction() {
       post('transaction/create', {
         userId: this.loginService.getUser().userId,
-        money: this.project.currentMoney,
+        money: this.donationValue,
         projectId: this.project.projectId
       })
     }

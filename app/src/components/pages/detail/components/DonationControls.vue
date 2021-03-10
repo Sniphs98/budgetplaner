@@ -8,13 +8,13 @@
 
     <b-row class="mb-0">
       <b-col cols="12">
-        <p>Money goal: <span class="donation-controls__value">{{ project.goalMoney }}</span></p>
+        <p>Money goal: <span class="donation-controls__value">${{ project.goalMoney }}</span></p>
       </b-col>
     </b-row>
 
     <b-row class="mb-4">
       <b-col cols="12">
-        <p>Collected money: <span class="donation-controls__value">{{ project.currentMoney }}</span></p>
+        <p>Collected money: <span class="donation-controls__value">${{ project.currentMoney }}</span></p>
       </b-col>
     </b-row>
 

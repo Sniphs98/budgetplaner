@@ -6,7 +6,7 @@
       <b-list-group-item v-for="currentTransaction in userTransactions"
                          :key="currentTransaction.transactionId"
                          class="transaction-list-item">
-        <span>Project: {{ currentTransaction.projectId }}</span>
+        <span>Project: {{ currentTransaction.project.title }}</span>
 
         <span class="transaction-list-amount">You've donated: ${{ currentTransaction.money }}</span>
       </b-list-group-item>
